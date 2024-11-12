@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize";
 
-const db = new Sequelize('legal_db', 'egi', 'duaribu77', {
-    host: 'localhost',
+const db = new Sequelize('legal_db', 'egi', 'Unimedika77', {
+    host: '192.168.88.123',
     dialect: 'mssql',
     dialectOptions: {
         options: {

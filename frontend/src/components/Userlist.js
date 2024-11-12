@@ -13,13 +13,13 @@ const Userlist = () => {
   }, []);
 
   const getUsers = async () => {
-    const response = await axios.get('http://192.168.88.103:5001/legal');
+    const response = await axios.get('http://192.168.88.123:5001/legal');
     setUsers(response.data);
   }
 
   const deleteUser = async (id) => {
     try {
-      await axios.delete(`http://192.168.88.103:5001/legal/${id}`);
+      await axios.delete(`http://192.168.88.123:5001/legal/${id}`);
       getUsers();
     } catch (error) {
       console.log(error);

@@ -16,7 +16,7 @@ const EditUser = () => {
 
     // Gunakan useCallback untuk membuat fungsi getById stabil
     const getById = useCallback(async () => {
-        const response = await axios.get(`http://192.168.88.103:5001/legal/${id}`);
+        const response = await axios.get(`http://192.168.88.123:5001/legal/${id}`);
         setDokumen(response.data.Nama_Dokumen);
         setSurat(response.data.Nomor_Surat);
         setTerbit(response.data.Tanggal_Terbit);
@@ -33,7 +33,7 @@ const EditUser = () => {
     const updateUser = async (e) => {
         e.preventDefault();
         try {
-            await axios.patch(`http://192.168.88.103:5001/legal/${id}`, {
+            await axios.patch(`http://192.168.88.123:5001/legal/${id}`, {
                 Nama_Dokumen,
                 Nomor_Surat,
                 Tanggal_Terbit,

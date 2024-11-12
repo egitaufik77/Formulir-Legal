@@ -18,7 +18,7 @@ const navigate = useNavigate();
 const saveUser = async (e) => {
     e.preventDefault();
     try {
-        await axios.post('http://192.168.88.103:5001/legal', {
+        await axios.post('http://192.168.88.123:5001/legal', {
             Nama_Dokumen,
             Nomor_Surat,
             Tanggal_Terbit,
