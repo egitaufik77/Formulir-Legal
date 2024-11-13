@@ -68,6 +68,7 @@ const saveUser = async (e) => {
                     <div className="control">
                         <div className="select is-fullwidth">
                         <select value={Site} onChange={(e) => setSite(e.target.value)}>
+                            <option value="">Pilih Site</option> {/* Opsi default kosong */}
                             <option value="UMST">UMST</option>
                             <option value="UMSB">UMSB</option>
                             <option value="UMCC">UMCC</option>
