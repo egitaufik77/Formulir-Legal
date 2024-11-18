@@ -20,7 +20,7 @@ const AddUser = () => {
         Nama_Dokumen,
         Nomor_Surat,
         Tanggal_Terbit,
-        Tanggal_Exp,
+        Tanggal_Exp: Tanggal_Exp || null,
         Site,
         Link,
         Keterangan

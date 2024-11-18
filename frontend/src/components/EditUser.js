@@ -20,7 +20,7 @@ const EditUser = () => {
         setDokumen(response.data.Nama_Dokumen);
         setSurat(response.data.Nomor_Surat);
         setTerbit(response.data.Tanggal_Terbit);
-        setExp(response.data.Tanggal_Exp);
+        setExp(response.data.Tanggal_Exp || "");
         setSite(response.data.Site);
         setLink(response.data.Link);
         setKeterangan(response.data.Keterangan);
@@ -37,7 +37,7 @@ const EditUser = () => {
                 Nama_Dokumen,
                 Nomor_Surat,
                 Tanggal_Terbit,
-                Tanggal_Exp,
+                Tanggal_Exp: Tanggal_Exp || null, 
                 Site,
                 Link,
                 Keterangan

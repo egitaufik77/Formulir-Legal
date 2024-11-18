@@ -22,14 +22,37 @@ const User = db.define('legal', {
     },
     Site: DataTypes.STRING,
     Link: DataTypes.STRING,
-    Keterangan: DataTypes.STRING
-    
+    Keterangan: DataTypes.STRING,
+    createdAt: {
+        type: DataTypes.DATE,
+        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
+        get() {
+            const rawValue = this.getDataValue('createdAt');
+            return rawValue ? moment(rawValue).tz('Asia/Bangkok').format('YYYY-MM-DD HH:mm:ss') : null;
+        }
+    },
+    updatedAt: {
+        type: DataTypes.DATE,
+        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
+        get() {
+            const rawValue = this.getDataValue('updatedAt');
+            return rawValue ? moment(rawValue).tz('Asia/Bangkok').format('YYYY-MM-DD HH:mm:ss') : null;
+        }
+    }
+
 },{
-    freezeTableName:true
+    freezeTableName:true,
+    timestamps: true,
+    hooks: {
+        beforeUpdate: (user) => {
+            user.updatedAt = moment().tz('Asia/Bangkok').format('YYYY-MM-DD HH:mm:ss');
+        }
+    }
 });
 
 export default User;
 
-(async()=>{
-    await db.sync();
-})();
+//(async () => {
+//     await db.sync();
+// })();
+

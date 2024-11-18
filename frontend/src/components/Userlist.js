@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import { Link } from 'react-router-dom';
+import '../components/Userlist.css'; // Tambahkan CSS eksternal untuk styling tambahan
 
 const Userlist = () => {
   const [legal, setUsers] = useState([]);
@@ -45,19 +46,15 @@ const Userlist = () => {
   return (
     <div className="columns mt-5 is-centered">
       <div className="column is-three-quarters">
-        
-        {/* Card untuk menampilkan tabel dan form pencarian */}
         <div className="card">
-  <header className="card-header">
-    <p className="card-header-title">Daftar Dokumen Legal</p>
-    <div className="card-header-item">
-      <Link to={'add'} className='button is-success'>Tambah Baru</Link>
-    </div>
-  </header>
-
+          <header className="card-header">
+            <p className="card-header-title">Daftar Dokumen Legal</p>
+            <div className="card-header-item">
+              <Link to={'add'} className='button is-success'>Tambah Baru</Link>
+            </div>
+          </header>
 
           <div className="card-content">
-            {/* Grouped input untuk Search */}
             <div className="field is-grouped is-align-items-center mb-4">
               <p className="control is-expanded has-icons-left">
                 <input
@@ -100,7 +97,7 @@ const Userlist = () => {
                       <td>{legal.Tanggal_Terbit}</td>
                       <td>{legal.Tanggal_Exp}</td>
                       <td>{legal.Site}</td>
-                      <td>{legal.Link}</td>
+                      <td className="truncate">{legal.Link}</td> {/* Apply CSS class */}
                       <td>{legal.Keterangan}</td>
                       <td>
                         <div className="buttons">
@@ -118,7 +115,6 @@ const Userlist = () => {
               </tbody>
             </table>
 
-            {/* Pagination Controls */}
             <nav className="pagination" role="navigation" aria-label="pagination">
               <ul className="pagination-list">
                 {pageNumbers.map(number => (
