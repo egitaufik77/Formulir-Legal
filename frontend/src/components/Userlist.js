@@ -79,6 +79,7 @@ const Userlist = () => {
                   <th>No</th>
                   <th>Nama Dokumen</th>
                   <th>Nomor Surat</th>
+                  <th>Departement</th>
                   <th>Tanggal Terbit</th>
                   <th>Tanggal Exp</th>
                   <th>Site</th>
@@ -94,6 +95,7 @@ const Userlist = () => {
                       <td>{index + 1 + (currentPage - 1) * usersPerPage}</td>
                       <td>{legal.Nama_Dokumen}</td>
                       <td>{legal.Nomor_Surat}</td>
+                      <td>{legal.Departement}</td>
                       <td>{legal.Tanggal_Terbit}</td>
                       <td>{legal.Tanggal_Exp}</td>
                       <td>{legal.Site}</td>

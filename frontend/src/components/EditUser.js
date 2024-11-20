@@ -5,6 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 const EditUser = () => {
     const [Nama_Dokumen, setDokumen] = useState("");
     const [Nomor_Surat, setSurat] = useState("");
+    const [Departement, setDepartement] = useState("");
     const [Tanggal_Terbit, setTerbit] = useState("");
     const [Tanggal_Exp, setExp] = useState("");
     const [Site, setSite] = useState("");
@@ -19,6 +20,7 @@ const EditUser = () => {
         const response = await axios.get(`http://192.168.88.123:5001/legal/${id}`);
         setDokumen(response.data.Nama_Dokumen);
         setSurat(response.data.Nomor_Surat);
+        setDepartement(response.data.Departement);
         setTerbit(response.data.Tanggal_Terbit);
         setExp(response.data.Tanggal_Exp || "");
         setSite(response.data.Site);
@@ -36,6 +38,7 @@ const EditUser = () => {
             await axios.patch(`http://192.168.88.123:5001/legal/${id}`, {
                 Nama_Dokumen,
                 Nomor_Surat,
+                Departement,
                 Tanggal_Terbit,
                 Tanggal_Exp: Tanggal_Exp || null, 
                 Site,
@@ -64,6 +67,30 @@ const EditUser = () => {
                             <input type="text" className="input" value={Nomor_Surat} onChange={(e) => setSurat(e.target.value)} placeholder="Nomor Surat" />
                         </div>
                     </div>
+                    <div className="field">
+            <label className="label">Departement</label>
+            <div className="control">
+            <div className="select is-fullwidth">
+                <select value={Departement} onChange={(e) => setDepartement(e.target.value)}>
+                  <option value="">Pilih Departement</option> {/* Opsi default kosong */}
+                    <option value="NURSING">Nursing</option>
+                    <option value="PROCUREMENT">PROCUREMENT</option>
+                    <option value="FINANCE">FINANCE AND ACCOUNTING</option>
+                    <option value="HRD">HUMAN RESOURCE DEVELOPMENT</option>
+                    <option value="ICT">ICT</option>
+                    <option value="BOD">BOARD OF DIRECTOR</option>
+                    <option value="QR">QUALITY AND RISK</option>
+                    <option value="ANCILLARY">ANCILLARY SERVICE</option>
+                    <option value="CASEMIX">CASEMIX</option>
+                    <option value="MEDICAL-SERVICE">MEDICAL SERVICE</option>
+                    <option value="DOKTER-SPESIALIS">DOKTER SPESIALIS</option>
+                    <option value="BUSDEV">BUSINESS DEVELOPMENT</option>
+                    <option value="STRUCTURAL">STRUCTURAL</option>
+                    <option value="BUSINESS-OFFICE">BUSINESS OFFICE</option>
+                </select>
+                </div>
+            </div>
+            </div>
                     <div className="field">
                         <label className="label">Tanggal Terbit</label>
                         <div className="control">

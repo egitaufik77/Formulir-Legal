@@ -21,6 +21,7 @@ const User = db.define('legal', {
         }
     },
     Site: DataTypes.STRING,
+    Departement: DataTypes.STRING,
     Link: DataTypes.STRING,
     Keterangan: DataTypes.STRING,
     createdAt: {
@@ -52,7 +53,7 @@ const User = db.define('legal', {
 
 export default User;
 
-//(async () => {
-//     await db.sync();
-// })();
+(async () => {
+    await db.sync();
+})();
 
